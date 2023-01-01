@@ -15,7 +15,7 @@ DEFAULT_EPOCHS            = 9752 # Achieves around 98% accuracy
 
 def wav2ogg(wfn, ofn):
     """ Work around an issue where pyAudioClassification is
-            Unable to process input WAV files.
+        Unable to process input WAV files.
     """
     print(wfn, " --> ", ofn)
     x = AudioSegment.from_file(wfn)
@@ -23,11 +23,11 @@ def wav2ogg(wfn, ofn):
 
 
 def processDB(esc50_dir, output_dir):
-    """    This method prepares a new directory formatting
-            the ESC-50 database into a format that pyAudioClassification
-          Can read.
+    """ This method prepares a new directory formatting
+        the ESC-50 database into a format that pyAudioClassification
+        Can read.
     """
-    AUDIO_SUBDIR         = "%s/audio" % esc50_dir
+    AUDIO_SUBDIR    = "%s/audio" % esc50_dir
     METADATA_SUBDIR = "%s/meta"  % esc50_dir
 
     # Obtain the feature labels from the ESC-50 metadata file
@@ -79,11 +79,11 @@ def trainModel(features, labels, model_file):
 if __name__ == "__main__":
     parser = OptionParser()
 
-    parser.add_option("-e", "--esc50",  dest="esc50_dir",  default=DEFAULT_ESC50_DIR, help="Location of ESC-50 database.")
-    parser.add_option("-o", "--output", dest="output",          default="./data/",                    help="Output directory.")
-    parser.add_option("-m", "--model",  dest="model",             default="./model.h5",            help="Default Model file.")
-    parser.add_option("-f", "--feature",dest="feature",         default="./feat.npy",              help="Default Features file.")
-    parser.add_option("-l", "--label",    dest="label",             default="./label.npy",            help="Default Label file.")
+    parser.add_option("-e", "--esc50",   dest="esc50_dir",  default=DEFAULT_ESC50_DIR, help="Location of ESC-50 database.")
+    parser.add_option("-o", "--output",  dest="output",     default="./data/",         help="Output directory.")
+    parser.add_option("-m", "--model",   dest="model",      default="./model.h5",      help="Default Model file.")
+    parser.add_option("-f", "--feature", dest="feature",    default="./feat.npy",      help="Default Features file.")
+    parser.add_option("-l", "--label",   dest="label",      default="./label.npy",     help="Default Label file.")
 
     (options, args) = parser.parse_args()
 
